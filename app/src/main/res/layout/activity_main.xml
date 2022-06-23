@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
+    tools:context=".activity.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_placeNearBy"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gps"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_placeNearBy"
+        app:layout_constraintEnd_toStartOf="@id/tv_letsNurtureAhmadabad"/>
+
+    <TextView
+        android:id="@+id/tv_letsNurtureAhmadabad"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:text="@string/letsNurtureAhmedabad"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@id/img_location"
+        app:layout_constraintTop_toBottomOf="@id/tv_placeNearBy" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="25dp"
+        android:background="#E6DFDF"
+        app:layout_constraintTop_toBottomOf="@id/tv_letsNurtureAhmadabad"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_restaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="@string/restaurants"
+        android:layout_margin="10dp"
+        android:padding="8dp"
+        android:background="@drawable/background_button"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_gasStations"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_gasStations"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="@string/gasStations"
+        android:layout_margin="10dp"
+        android:padding="8dp"
+        android:background="@drawable/background_button"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintStart_toEndOf="@id/btn_restaurant"
+        app:layout_constraintEnd_toStartOf="@id/btn_hospital"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="@string/hospital"
+        android:layout_margin="10dp"
+        android:padding="8dp"
+        android:background="@drawable/background_button"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintStart_toEndOf="@id/btn_gasStations"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btn_gasStations"
+        android:orientation="vertical">
+
+        <!-- Adding 15 rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/simmer_placeholder" />
+            <include layout="@layout/simmer_placeholder" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_restaurantList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:visibility="gone"
+        tools:listitem="@layout/restaurants_item"
+        app:layout_constraintTop_toBottomOf="@id/shimmerFrameLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

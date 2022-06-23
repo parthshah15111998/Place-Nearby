@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Places Nearby</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="gasStations">Gas Stations</string>
+    <string name="hospital">Hospital</string>
+    <string name="letsNurtureAhmedabad">LetsNurture Ahmedabad India</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="APIKEY">AIzaSyAymWBDEP5EbIKxQXAgeIcwXBXALl89Ah8</string>
+
+</resources>
